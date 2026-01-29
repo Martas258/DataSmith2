@@ -1,5 +1,5 @@
 DataSmith2
-A lightweight and efficient data export tool designed for users who want a clean, fast and reliable workflow.
+A lightweight and efficient data export tool designed for users who want a clean, fast, and reliable workflow.
 Built with Avalonia UI and .NET 8, DataSmith2 includes a Windows installer and is ready to use immediately.
 
 ✨ Features
@@ -15,10 +15,9 @@ Built with Avalonia UI and .NET 8
 
 Low system requirements
 
-## 📥 Download
-Stáhnout instalátor:
+📥 Download
+Download the installer:
 ➡️ [Latest Release](../../releases/latest)
-
 
 (The link appears automatically once you upload the installer.)
 
