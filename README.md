@@ -15,10 +15,10 @@ Built with Avalonia UI and .NET 8
 
 Low system requirements
 
-📥 Download
-Download the latest version from the Releases page:
+## 📥 Download
+Stáhnout instalátor:
+➡️ [Latest Release](../../releases/latest)
 
-➡️ DataSmith2Installer.exe
 
 (The link appears automatically once you upload the installer.)
 
