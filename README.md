@@ -26,8 +26,7 @@ Stáhnout instalátor:
 Add your screenshots here once uploaded:
 
 Kód
-![Screenshot 1](images[Uploading Screenshot 1…]()
-/screenshot1.png)
+![Screenshot 1](images/screenshot1.png)
 ![Screenshot 2](images/screenshot2.png)
 📄 Changelog
 v1.0
