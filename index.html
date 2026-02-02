@@ -2,70 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataSmith2 – Official Page</title>
+    <title>DataSmith2 — File Name Transformer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: Arial, sans-serif;
             background: #0f0f0f;
             color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
-
         header {
+            background: #1a1a1a;
+            padding: 40px 20px;
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-bottom: 2px solid #333;
         }
-
         h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            margin: 0;
+            font-size: 2.8rem;
+            color: #4da3ff;
         }
-
-        p.subtitle {
-            font-size: 20px;
-            opacity: 0.8;
+        h2 {
+            color: #4da3ff;
+            margin-top: 40px;
         }
-
-        .btn {
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .button {
             display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: #0078ff;
-            color: white;
+            padding: 12px 22px;
+            background: #4da3ff;
+            color: #000;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
         }
-
-        section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
+        .button:hover {
+            background: #6bb4ff;
         }
-
-        h2 {
-            border-left: 4px solid #0078ff;
-            padding-left: 10px;
-            margin-bottom: 10px;
+        .sponsor-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
         }
-
-        img {
-            max-width: 100%;
+        .sponsor-button {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #ff4da3;
+            color: #000;
+            text-decoration: none;
             border-radius: 6px;
-            margin-top: 10px;
+            font-weight: bold;
+            margin-top: 15px;
         }
-
+        .sponsor-button:hover {
+            background: #ff6bb4;
+        }
         footer {
             text-align: center;
             padding: 20px;
-            opacity: 0.6;
-            font-size: 14px;
-        }
-
-        a {
-            color: #66aaff;
+            color: #777;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -73,76 +79,70 @@
 
 <header>
     <h1>DataSmith2</h1>
-    <p class="subtitle">Professional data export tool</p>
-    <a class="btn" href="https://github.com/martas258/DataSmith2/releases/latest">Download Installer</a>
+    <p>Cross‑platform file name transformer for creators, developers, and archivists.</p>
+    <a class="button" href="../releases">Download Latest Version</a>
 </header>
 
-<section>
-    <h2>About the Application</h2>
+<div class="container">
+
+    <h2>What is DataSmith2?</h2>
     <p>
-        DataSmith2 is a lightweight and efficient tool for data export. Designed for users who want a clean, fast, and reliable workflow. Built with Avalonia UI and .NET 8.
+        DataSmith2 is a lightweight desktop tool for transforming and cleaning file names in bulk.
+        It provides instant preview, simple filters, and export options — all in a clean, fast UI.
+        Built with <strong>Avalonia</strong> for Windows, Linux, and macOS.
     </p>
-</section>
 
-<section>
-    <h2>Screenshots</h2>
-    <img src="Screenshot1.png.png" alt="Screenshot 1">
-    <img src="Screenshot2.png.png" alt="Screenshot 2">
-</section>
+    <h2>Features</h2>
+    <ul>
+        <li>Remove numbers, lowercase, uppercase, spaces, or symbols</li>
+        <li>Add a custom prefix (invalid characters are automatically removed)</li>
+        <li>Drag & drop files or load entire folders</li>
+        <li>Live preview of original vs transformed names</li>
+        <li>Export to TXT, CSV, or JSON</li>
+        <li>Cross‑platform — works everywhere</li>
+    </ul>
 
-<section>
     <h2>Roadmap</h2>
-    <p>
-        You can find the development roadmap in the repository: 
-        <a href="https://github.com/martas258/DataSmith2/blob/main/ROADMAP">ROADMAP</a>
-    </p>
-</section>
+    <p>Planned for version <strong>2.0</strong>:</p>
+    <ul>
+        <li>Modernized UI</li>
+        <li>Export to PNG, JPG, PDF</li>
+        <li>Persistent settings</li>
+        <li>Additional filters and automation tools</li>
+    </ul>
 
-<section>
-    <h2>Support the Development</h2>
-    <p>
-        If you would like to support the development of DataSmith2, you can sponsor me on GitHub.
-    </p>
+    <h2>Build from Source</h2>
+    <p>Requirements:</p>
+    <ul>
+        <li>.NET 8 SDK</li>
+        <li>Avalonia 11.x</li>
+    </ul>
 
-    <a href="https://github.com/sponsors/Martas258"
-       target="_blank"
-       style="
-          display:inline-flex;
-          align-items:center;
-          gap:8px;
-          padding:10px 16px;
-          background:#24292e;
-          color:white;
-          border-radius:6px;
-          text-decoration:none;
-          font-weight:600;
-          font-family:system-ui, sans-serif;
-          transition:background 0.2s;
-       "
-       onmouseover="this.style.background='#3b4046'"
-       onmouseout="this.style.background='#24292e'">
-       <svg height="16" width="16" viewBox="0 0 16 16" fill="white">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-          2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
-          0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-          -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 
-          1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78
-          -.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-          -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 
-          2.2.82.64-.18 1.32-.27 2-.27.68 0 
-          1.36.09 2 .27 1.53-1.04 2.2-.82 
-          2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
-          1.27.82 2.15 0 3.07-1.87 3.75-3.65 
-          3.95.29.25.54.73.54 1.48 0 1.07-.01 
-          1.93-.01 2.2 0 .21.15.46.55.38A8.013 
-          8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-       </svg>
-       Sponsor on GitHub
-    </a>
-</section>
+    <p>Build:</p>
+    <pre><code>dotnet build</code></pre>
+
+    <p>Run:</p>
+    <pre><code>dotnet run</code></pre>
+
+    <!-- ⭐ SPONSOR SECTION ⭐ -->
+    <div class="sponsor-box">
+        <h2>Support DataSmith2</h2>
+        <p>
+            If you find DataSmith2 useful and want to support its development,
+            you can sponsor the project on GitHub.  
+            Every contribution helps me improve the tool and build new features.
+        </p>
+
+        <!-- Replace YOUR_USERNAME with your GitHub username -->
+        <a class="sponsor-button" href="https://github.com/sponsors/YOUR_USERNAME">
+            ❤️ Sponsor on GitHub
+        </a>
+    </div>
+
+</div>
 
 <footer>
-    © 2026 DataSmith2 – created by Martin Knotek
+    © 2026 DataSmith2 — Created by Martin Knotek
 </footer>
 
 </body>
