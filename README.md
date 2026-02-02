@@ -1,52 +1,96 @@
-DataSmith2
-A lightweight and efficient data export tool designed for users who want a clean, fast, and reliable workflow.
-Built with Avalonia UI and .NET 8, DataSmith2 includes a Windows installer and is ready to use immediately.
+# DataSmith2 — File Name Transformer
 
-✨ Features
-Clean and simple user interface
+DataSmith2 is a lightweight desktop tool for transforming and cleaning file names.  
+It is designed for creators, developers, archivists, and anyone who works with large batches of files and needs fast, predictable renaming logic.
 
-Fast data export with minimal steps
+Built with **Avalonia** for full cross‑platform support (Windows, Linux, macOS).
 
-No dependencies or complex setup
+---
 
-Windows installer included
+## ✨ Features (Free Version 1.x)
 
-Built with Avalonia UI and .NET 8
+### 🔤 Smart File Name Filters
+Apply instant transformations to file names:
 
-Low system requirements
+- Remove numbers  
+- Remove lowercase letters  
+- Remove uppercase letters  
+- Remove spaces  
+- Remove symbols (keeps A–Z, a–z, 0–9, `_` and `-`)  
+- Add a custom prefix (invalid characters are automatically removed)
 
-📥 Download
-Download the installer:
-➡️ [Latest Release](../../releases/latest)
+All filters update the preview **in real time**.
 
-(The link appears automatically once you upload the installer.)
+---
 
-🖼️ Screenshots
-Add your screenshots here once uploaded:
+## 📁 File Input
 
-Kód
-![Screenshot 1](images/screenshot1.png)
-![Screenshot 2](images/screenshot2.png)
-📄 Changelog
-v1.0
-Initial public release
+You can load files in multiple ways:
 
-Basic UI
+- Drag & drop files directly into the window  
+- Select individual files  
+- Select an entire folder  
 
-Core export functionality
+Images display a small thumbnail; other files show a document icon.
 
-Windows installer added
+---
 
-🛠️ Technologies
-.NET 8
+## 👀 Live Preview
 
-Avalonia UI
+The preview grid shows:
 
-Inno Setup
+| Original | Transformed |
+|----------|-------------|
 
-📬 Feedback & Issues
-If you encounter a bug or have a feature request, feel free to open an Issue in this repository.
+Every change to filters or prefix updates the preview instantly.
 
-📜 License
-This project is distributed under a proprietary license.
-See the LICENSE file for details.
+---
+
+## 📤 Export Options
+
+Export the transformation results in multiple formats:
+
+- **TXT** — simple readable list  
+- **CSV** — spreadsheet‑friendly  
+- **JSON** — structured data for automation  
+
+Exports can be saved:
+
+- to a chosen file  
+- or automatically into the user's AppData folder
+
+---
+
+## 🧩 Cross‑Platform
+
+DataSmith2 is built on **Avalonia**, meaning it runs on:
+
+- Windows  
+- Linux  
+- macOS  
+
+No installation required — just run the executable.
+
+---
+
+## 🚧 Roadmap
+
+DataSmith2 is actively evolving.  
+Upcoming features planned for version **2.0** include:
+
+- Modernized UI  
+- Visual export (PNG, JPG, PDF)  
+- Persistent settings  
+- Additional filters and automation tools  
+
+---
+
+## 🛠 Development
+
+### Requirements
+- .NET 8 SDK  
+- Avalonia 11.x  
+
+### Build
+```bash
+dotnet build
