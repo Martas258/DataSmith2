@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataSmith2 1.0 – Simple Text Processing Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #0b1020;
+            color: #f5f7ff;
+            line-height: 1.6;
+        }
+        header {
+            padding: 20px;
+            background: #141a2b;
+            border-bottom: 1px solid #252c40;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4ea1ff;
+        }
+        a {
+            color: #4ea1ff;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: #4ea1ff;
+            color: #050712;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+        .card {
+            background: #141a2b;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #252c40;
+            margin-bottom: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            color: #a5afc7;
+            border-top: 1px solid #252c40;
+        }
+        .sponsor {
+            background: #1a0f14;
+            border: 1px solid #3a2235;
+        }
+        .btn-sponsor {
+            background: #ff4e6a;
+            color: #050712;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .btn-sponsor:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>DataSmith2 <span style="color:#7b5cff;">v1.0</span></h1>
+        <p>The first public release of a simple and fast text‑processing tool.</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📥 Download</h2>
+        <p>DataSmith2 1.0 is free and ready to use.</p>
+        <a class="btn" href="https://github.com/Martas258/DataSmith2/releases/latest" target="_blank">Download DataSmith2 1.0</a>
+        <a class="btn" href="https://github.com/Martas258/DataSmith2" target="_blank">View Source Code</a>
+    </div>
+
+    <div class="card">
+        <h2>✨ Features in Version 1.0</h2>
+        <ul>
+            <li>Select a file or folder</li>
+            <li>Drag & Drop support</li>
+            <li>Basic filters (trim, remove empty lines, etc.)</li>
+            <li>Original / Transformed preview</li>
+            <li>Export to TXT, CSV, JSON</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>⚠ Limitations</h2>
+        <ul>
+            <li>No PDF / PNG / JPG export</li>
+            <li>No advanced filters</li>
+            <li>No modern UI (coming in version 2.0)</li>
+            <li>No multimedia features</li>
+        </ul>
+    </div>
+
+    <div class="card sponsor">
+        <h2>❤️ Support the Project</h2>
+        <p>If you enjoy DataSmith2 and want to support the development of version 2.0 and the future Pro edition, you can support me on GitHub Sponsors.</p>
+        <a class="btn-sponsor" href="https://github.com/sponsors/Martas258" target="_blank">Sponsor on GitHub</a>
+    </div>
+
+</div>
+
+<footer>
+    © <span id="year"></span> DataSmith2 – Version 1.0 · 
+    <a href="https://github.com/Martas258" target="_blank">My GitHub Profile</a>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
