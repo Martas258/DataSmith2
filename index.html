@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataSmith2 1.0 – Text Processing Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DataSmith2 1.0 – simple text processing tool with filters and export to TXT, CSV, JSON.">
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-alt: #141a2b;
+            --accent: #4ea1ff;
+            --accent-soft: rgba(78,161,255,0.12);
+            --text: #f5f7ff;
+            --muted: #a5afc7;
+            --border: #252c40;
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.45);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-pill: 999px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1a2440 0, #050712 55%, #02030a 100%);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 16px 48px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: conic-gradient(from 210deg, #4ea1ff, #7b5cff, #ff4e6a, #ffc857, #4ea1ff);
+            padding: 2px;
+        }
+
+        .logo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background: radial-gradient(circle at 20% 0, #ffffff22 0, #0b1020 55%, #050712 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .brand-title {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            font-size: 17px;
+        }
+
+        .brand-sub {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .top-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border);
+            padding: 5px 11px;
+            font-size: 12px;
+            color: var(--muted);
+            background: rgba(10,14,30,0.8);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .hero {
+            background: radial-gradient(circle at top left, #4ea1ff22 0, #0b1020 45%, #050712 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 22px 18px 18px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 26px;
+            line-height: 1.2;
+            margin: 0 0 6px;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            border-radius: var(--radius-pill);
+            padding: 8px 16px;
+            font-size: 13px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4ea1ff, #7b5cff);
+            color: #050712;
+            font-weight: 600;
+            box-shadow: 0 10px 24px rgba(78,161,255,0.45);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.05);
+            text-decoration: none;
+        }
+
+        .btn-ghost {
+            background: rgba(5,7,18,0.9);
+            border-color: var(--border);
+            color: var(--muted);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .hero-note {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .card {
+            background: rgba(5,7,18,0.9);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            padding: 12px 12px 10px;
+            font-size: 13px;
+        }
+
+        .card h2 {
+            font-size: 14px;
+            margin: 0 0 6px;
+        }
+
+        .card p {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .card ul li + li {
+            margin-top: 2px;
+        }
+
+        .sponsor-card {
+            background: radial-gradient(circle at top right, #ff4e6a22 0, #050712 55%, #02030a 100%);
+            border-radius: var(--radius-md);
+            border: 1px solid #3a2235;
+            padding: 12px 12px 10px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+            margin-bottom: 18px;
+        }
+
+        .sponsor-title {
+            font-size: 14px;
+            margin: 0 0 4px;
+        }
+
+        .sponsor-sub {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0 0 8px;
+        }
+
+        .btn-sponsor {
+            background: linear-gradient(135deg, #ff4e6a, #ff8a5c);
+            color: #050712;
+            font-weight: 600;
+            border-radius: var(--radius-pill);
+            padding: 7px 14px;
+            font-size: 13px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 9px 22px rgba(255,78,106,0.45);
+        }
+
+        .btn-sponsor:hover {
+            filter: brightness(1.05);
+            text-decoration: none;
+        }
+
+        .sponsor-note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--muted);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        @media (max-width: 720px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="brand">
+            <div class="logo">
+                <div class="logo-inner">D2</div>
+            </div>
+            <div>
+                <div class="brand-title">DataSmith2 <span style="color:var(--accent);">1.0</span></div>
+                <div class="brand-sub">Simple text processing for everyday use</div>
+            </div>
+        </div>
+        <div class="top-links">
+            <div class="chip">
+                <strong>Repo:</strong>
+                <a href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="chip">
+                <strong>Issues:</strong>
+                <a href="https://github.com/USERNAME/REPO/issues" target="_blank" rel="noopener">Report a bug</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">
+                DataSmith2 1.0 – clean up and export text
+            </h1>
+            <p class="hero-sub">
+                First stable version of DataSmith2. Load files, apply basic filters and export your cleaned text
+                to TXT, CSV or JSON.
+            </p>
+            <div class="hero-actions">
+                <!-- nahraď odkaz na skutečný release -->
+                <a class="btn btn-primary" href="https://github.com/USERNAME/REPO/releases/latest" target="_blank" rel="noopener">
+                    ⬇ Download DataSmith2 1.0
+                </a>
+                <a class="btn btn-ghost" href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">
+                    ⭐ View source
+                </a>
+            </div>
+            <div class="hero-note">
+                Version 1.0 is free to use. A more advanced 2.0 and Pro edition are planned as separate products.
+            </div>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <h2>Features in 1.0</h2>
+                <p>Everything you need to start working with text files.</p>
+                <ul>
+                    <li>Select single file or folder</li>
+                    <li>Drag & Drop support</li>
+                    <li>Basic filters (trim, remove empty lines, etc.)</li>
+                    <li>Original / transformed preview</li>
+                    <li>Export to TXT, CSV, JSON</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>Limitations</h2>
+                <p>DataSmith2 1.0 is intentionally simple and focused.</p>
+                <ul>
+                    <li>No PDF / PNG / JPG export yet</li>
+                    <li>No advanced presets or profiles</li>
+                    <li>No multimedia (audio / video) features</li>
+                    <li>UI is functional, not yet fully modernised</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="sponsor-card">
+            <h2 class="sponsor-title">Support DataSmith2</h2>
+            <p class="sponsor-sub">
+                If you like DataSmith2 1.0 and want to see 2.0 and Pro versions happen faster,
+                you can support the project via GitHub Sponsors.
+            </p>
+            <!-- nahraď USERNAME za svůj GitHub účet -->
+            <a class="btn-sponsor" href="https://github.com/sponsors/Martas258" target="_blank" rel="noopener">
+                ❤️ Sponsor on GitHub
+            </a>
+            <div class="sponsor-note">
+                Sponsorship helps me maintain 1.0, design 2.0 and experiment with Pro features.
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div>© <span id="year"></span> DataSmith2 · Version 1.0</div>
+        <div>
+            <a href="https://github.com/Martas258" target="_blank" rel="noopener">GitHub profile</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
