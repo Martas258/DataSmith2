@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataSmith2 — File Name Transformer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #0f0f10;
+            --bg-alt: #18181b;
+            --border: #2a2a30;
+            --text: #e5e5e5;
+            --muted: #9ca3af;
+            --accent: #4da3ff;
+            --accent-soft: #6bb4ff;
+            --accent-sponsor: #ff4da3;
+            --accent-sponsor-soft: #ff6bb4;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: clamp(2.4rem, 4vw, 3.2rem);
+            margin: 0 0 10px;
+            letter-spacing: 0.03em;
+            color: var(--accent);
+        }
+        .hero-subtitle {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+        .hero-actions {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .button {
+            display: inline-block;
+            padding: 11px 22px;
+            background: var(--accent);
+            color: #020617;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+            box-shadow: 0 10px 25px rgba(77, 163, 255, 0.25);
+        }
+        .button:hover {
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(77, 163, 255, 0.35);
+        }
+        .button-secondary {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+            box-shadow: none;
+        }
+        .button-secondary:hover {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        section {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 20px;
+            margin-bottom: 18px;
+            backdrop-filter: blur(10px);
+        }
+        @media (min-width: 768px) {
+            section {
+                padding: 28px 26px;
+            }
+        }
+        h2 {
+            color: var(--accent);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 8px 0 0;
+        }
+        li {
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .muted {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        pre {
+            background: #020617;
+            border-radius: 10px;
+            padding: 10px 12px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            color: #e5e7eb;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        @media (min-width: 800px) {
+            .two-column {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+        .sponsor-box {
+            background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.12), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(248, 113, 113, 0.35);
+            padding: 22px 18px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .sponsor-title {
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+            color: #fecaca;
+        }
+        .sponsor-text {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #fee2e2;
+        }
+        .sponsor-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--accent-sponsor);
+            color: #020617;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 14px;
+            border: 1px solid rgba(248, 113, 170, 0.7);
+            box-shadow: 0 10px 25px rgba(248, 113, 170, 0.35);
+            transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+        }
+        .sponsor-button:hover {
+            background: var(--accent-sponsor-soft);
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px rgba(248, 113, 170, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 18px 10px 26px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="hero-title">DataSmith2</h1>
+    <p class="hero-subtitle">
+        Cross‑platform file name transformer for creators, developers, and archivists.
+    </p>
+    <div class="hero-actions">
+        <!-- uprav odkaz na svůj release -->
+        <a class="button" href="./releases">Download latest version</a>
+        <!-- odkaz na repozitář -->
+        <a class="button button-secondary" href="https://github.com/YOUR_USERNAME/DataSmith2">
+            View on GitHub
+        </a>
+    </div>
+</header>
+
+<div class="container">
+
+    <section class="two-column">
+        <div>
+            <h2>What is DataSmith2?</h2>
+            <p>
+                DataSmith2 is a lightweight desktop tool for transforming and cleaning file names in bulk.
+                It gives you instant preview, simple filters, and export options — without scripting or complex regex.
+            </p>
+            <p class="muted">
+                Built with Avalonia and .NET, designed for Windows, Linux, and macOS.
+            </p>
+        </div>
+        <div>
+            <h2>Main features</h2>
+            <ul>
+                <li>Remove numbers, lowercase, uppercase, spaces, or symbols</li>
+                <li>Add a custom prefix (invalid characters are automatically removed)</li>
+                <li>Drag &amp; drop files or load entire folders</li>
+                <li>Live preview of original vs transformed names</li>
+                <li>Export to TXT, CSV, or JSON</li>
+                <li>Cross‑platform desktop app</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Roadmap</h2>
+        <p>Planned for version <strong>2.0</strong>:</p>
+        <ul>
+            <li>Modernized UI</li>
+            <li>Export to PNG, JPG, PDF</li>
+            <li>Persistent settings</li>
+            <li>Additional filters and automation tools</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Build from source</h2>
+        <p>Requirements:</p>
+        <ul>
+            <li>.NET 8 SDK</li>
+            <li>Avalonia 11.x</li>
+        </ul>
+        <p>Build:</p>
+        <pre><code>dotnet build</code></pre>
+        <p>Run:</p>
+        <pre><code>dotnet run</code></pre>
+        <p class="muted">
+            See the GitHub repository for detailed instructions and release notes.
+        </p>
+    </section>
+
+    <section>
+        <div class="sponsor-box">
+            <p class="sponsor-title">Support DataSmith2 on GitHub</p>
+            <p class="sponsor-text">
+                If DataSmith2 saves you time or fits into your workflow,
+                you can support its development through GitHub Sponsors.
+                Every contribution helps me keep improving the tool and building new features.
+            </p>
+            <!-- změň YOUR_USERNAME na svůj GitHub účet -->
+            <a class="sponsor-button" href="https://github.com/sponsors/Martas258">
+                ❤️ Sponsor on GitHub
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    © 2026 DataSmith2 — Created by Martine
+</footer>
+
+</body>
+</html>
