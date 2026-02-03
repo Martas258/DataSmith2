@@ -1,161 +1,76 @@
-  
-        
-        }
-        code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            color: #e5e7eb;
-        }
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 14px;
-        }
-        @media (min-width: 800px) {
-            .two-column {
-                grid-template-columns: 1.1fr 0.9fr;
-            }
-        }
-        .sponsor-box {
-            background: radial-gradient(circle at top left, rgba(248, 113, 113, 0.12), rgba(15, 23, 42, 0.95));
-            border: 1px solid rgba(248, 113, 113, 0.35);
-            padding: 22px 18px;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .sponsor-title {
-            margin: 0 0 8px;
-            font-size: 1.15rem;
-            color: #fecaca;
-        }
-        .sponsor-text {
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSmith2 – Download & GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
             margin: 0;
-            font-size: 0.92rem;
-            color: #fee2e2;
-        }
-        .sponsor-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--accent-sponsor);
-            color: #020617;
-            text-decoration: none;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 14px;
-            border: 1px solid rgba(248, 113, 170, 0.7);
-            box-shadow: 0 10px 25px rgba(248, 113, 170, 0.35);
-            transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-        }
-        .sponsor-button:hover {
-            background: var(--accent-sponsor-soft);
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(248, 113, 170, 0.5);
-        }
-        footer {
+            padding: 40px;
             text-align: center;
-            padding: 18px 10px 26px;
-            color: var(--muted);
-            font-size: 0.85rem;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #000;
+        }
+
+        .sponsor {
+            background: #ea4aaa;
+        }
+
+        .sponsor:hover {
+            background: #c21875;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1 class="hero-title">DataSmith2</h1>
-    <p class="hero-subtitle">
-        Cross‑platform file name transformer for creators, developers, and archivists.
-    </p>
-    <div class="hero-actions">
-        <!-- uprav odkaz na svůj release -->
-        <a class="btn" 
+    <h1>DataSmith2</h1>
+    <p>Oficiální stránka projektu – stáhněte si instalátor nebo navštivte GitHub.</p>
+
+    <!-- Installer -->
+    <a class="btn" 
    href="https://github.com/Martas258/DataSmith2/releases/latest/download/DataSmith2Installer.exe">
    Stáhnout DataSmith2 Installer
 </a>
-    Stáhnout DataSmith2 Installer
+
+    <!-- Repozitář -->
+    <a href="https://github.com/Martas258/DataSmith2" target="_blank">
+    GitHub Repozitář DataSmith2
 </a>
-        <!-- odkaz na repozitář -->
-        <a class="button button-secondary" href="https://github.com/Martas258/DataSmith2">
-            View on GitHub
-        </a>
-    </div>
-</header>
 
-<div class="container">
+    <!-- Profil -->
+    <a class="btn" 
+       href="https://github.com/Martas258" 
+       target="_blank">
+       Můj GitHub Profil
+    </a>
 
-    <section class="two-column">
-        <div>
-            <h2>What is DataSmith2?</h2>
-            <p>
-                DataSmith2 is a lightweight desktop tool for transforming and cleaning file names in bulk.
-                It gives you instant preview, simple filters, and export options — without scripting or complex regex.
-            </p>
-            <p class="muted">
-                Built with Avalonia and .NET, designed for Windows, Linux, and macOS.
-            </p>
-        </div>
-        <div>
-            <h2>Main features</h2>
-            <ul>
-                <li>Remove numbers, lowercase, uppercase, spaces, or symbols</li>
-                <li>Add a custom prefix (invalid characters are automatically removed)</li>
-                <li>Drag &amp; drop files or load entire folders</li>
-                <li>Live preview of original vs transformed names</li>
-                <li>Export to TXT, CSV, or JSON</li>
-                <li>Cross‑platform desktop app</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Roadmap</h2>
-        <p>Planned for version <strong>2.0</strong>:</p>
-        <ul>
-            <li>Modernized UI</li>
-            <li>Export to PNG, JPG, PDF</li>
-            <li>Persistent settings</li>
-            <li>Additional filters and automation tools</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Build from source</h2>
-        <p>Requirements:</p>
-        <ul>
-            <li>.NET 8 SDK</li>
-            <li>Avalonia 11.x</li>
-        </ul>
-        <p>Build:</p>
-        <pre><code>dotnet build</code></pre>
-        <p>Run:</p>
-        <pre><code>dotnet run</code></pre>
-        <p class="muted">
-            See the GitHub repository for detailed instructions and release notes.
-        </p>
-    </section>
-
-    <section>
-        <div class="sponsor-box">
-            <p class="sponsor-title">Support DataSmith2 on GitHub</p>
-            <p class="sponsor-text">
-                If DataSmith2 saves you time or fits into your workflow,
-                you can support its development through GitHub Sponsors.
-                Every contribution helps me keep improving the tool and building new features.
-            </p>
-            <!-- změň YOUR_USERNAME na svůj GitHub účet -->
-            <a class="sponsor-button" href="https://github.com/sponsors/Martas258">
-                ❤️ Sponsor on GitHub
-            </a>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    © 2026 DataSmith2 — Created by Martin Knotek
-</footer>
+    <!-- GitHub Sponsors -->
+    <a class="btn sponsor" 
+       href="https://github.com/sponsors/Martas258" 
+       target="_blank">
+       Podpořit na GitHub Sponsors
+    </a>
 
 </body>
-</html>     
-
+</html>
